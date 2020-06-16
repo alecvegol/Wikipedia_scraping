@@ -1,8 +1,7 @@
 import requests
-#one way to get the HTML of the website:
-#website_url = requests.get('https://en.wikipedia.org/wiki/List_of_Asian_countries_by_area').text
 
-#second way to get the HTML of the website:
+
+#Getting the HTML of the website:
 url= 'https://en.wikipedia.org/wiki/List_of_Asian_countries_by_area'
 # requesting HTML of the website:
 response = requests.get(url).text
@@ -14,7 +13,7 @@ soup = BeautifulSoup(response,'lxml')
 #extracting the whole table first:
 My_table = soup.find('table',{'class':'wikitable sortable'})
 
-#print(My_table)
+#print(My_table) #checking the result
 
 #extracting the rows with county name in it
 countries = My_table.find_all('a')
